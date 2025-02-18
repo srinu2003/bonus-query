@@ -2,6 +2,10 @@ from flask import Flask, request, jsonify
 import mysql.connector
 from mysql.connector import Error
 from flask_cors import CORS
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
@@ -11,9 +15,9 @@ def create_connection():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='srinu@1009'
+            host=os.getenv('DB_HOST'),
+            user=os.getenv('DB_USER'),
+            password=os.getenv('DB_PASSWORD')
         )
     except Error as e:
         print(f"The error '{e}' occurred")
