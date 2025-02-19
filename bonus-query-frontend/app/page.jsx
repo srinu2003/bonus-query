@@ -75,7 +75,7 @@ export default function FormPage() {
   };
 
   return (
-    <div className="container mx-auto p-4 px-[100px]">
+    <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Income Form</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="flex flex-wrap md:flex-nowrap gap-4">
@@ -127,13 +127,13 @@ export default function FormPage() {
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
                 <TableHead>Income per Annum</TableHead>
-                <TableHead>Bonus (25%)</TableHead>
                 <TableHead>Date</TableHead>
+                <TableHead>Bonus (25%)</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {entries.map((entry) => (
-                <TableRow key={entry.id}>
+              {entries.map((entry, index) => (
+                <TableRow key={index}>
                   <TableCell>{entry[0]}</TableCell>
                   <TableCell>{entry[1]}</TableCell>
                   <TableCell>{entry[2]}</TableCell>
